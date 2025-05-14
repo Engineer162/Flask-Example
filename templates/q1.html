@@ -1,0 +1,21 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kørekort til 16-årige?</title>
+    <link rel= "stylesheet" type= "text/css" href= "../static/css/style.css">
+</head>
+<body>
+    <h1>Skal 16-årige kunne få kørekort?</h1><br>
+    <form method="post" action="/q1/">
+        {{ q1_form.hidden_tag() }}
+
+        <input type="radio" id="ja" name="valg" value= 1>
+        <label for="ja">Ja</label><br>  
+        <input type="radio" id="nej" name="valg" value= 0>
+        <label for="nej">Nej</label><br><br>
+        <input type="submit" name="svar" value="Svar">
+    </form>
+	
+</body>
+</html>
