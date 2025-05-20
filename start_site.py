@@ -53,6 +53,25 @@ def q4():
             return redirect('/')
     return render_template('q4.html', q4_form = q4_form)
 
+@app.route('/results/', methods=['POST', 'GET'])
+def results():
+    conn = sqlite3.connect(db)
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT SUM(result) FROM Spørgsmål1")
+    ja = cursor.fetchall()
+    print(ja)
+    ja = ja[0][0]
+    
+    cursor.execute("SELECT count(result) FROM Spørgsmål1")
+    antal = cursor.fetchall()
+    antal = antal[0][0]
+    
+    nej = antal - ja
+    
+    conn.close()
+    return render_template('results.html', data = [ja, nej])
+
 if __name__ == '__main__':
     app.debug = True
     #app.run(debug=True) #Koer kun paa localhost
