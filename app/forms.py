@@ -13,6 +13,10 @@ class Q2_Form(FlaskForm):
 class Q3_Form(FlaskForm):
     submit = SubmitField('Svar_button')    
 
+class Q4_Form(FlaskForm):
+    checkbox = StringField('checkbox', validators=[DataRequired()])
+    submit = SubmitField('svar')
+
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
     password = PasswordField('password', validators=[DataRequired()])
